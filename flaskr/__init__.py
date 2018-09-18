@@ -29,7 +29,13 @@ def create_app(test_config=None):
     def hello():
         return 'Hello, World!'
 
+    #Sets up the database
     from . import db
     db.init_app(app)
+
+    #Adds the auth blueprint to the current app
+    #This moduel can later be replaced with a more sophisticed auth system
+    from . import auth
+    app.register_blueprint(auth.bp)
 
     return app
