@@ -7,6 +7,8 @@ This is a basic website that is built using [Flask](http://flask.pocoo.org/docs/
 
 The basic struture of this webapp is based on the [tutorial](http://flask.pocoo.org/docs/1.0/tutorial/) from the Flask docs.
 
+This is a basic JSON API service that is meant to work in hand with the javascript client webapp. 
+
 
 Some notes to remeber:
 - remember to run the following
