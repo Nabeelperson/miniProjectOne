@@ -1,6 +1,7 @@
-#MiniprojectOne 
+# MiniprojectOne 
 
-##Brian Koh and Nabeel Younis
+## Brian Koh and Nabeel Younis
+### Senior Design EC436 Fall 2018
 
 This is a basic website that is built using [Flask](http://flask.pocoo.org/docs/1.0/)
 

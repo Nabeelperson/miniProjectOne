@@ -7,9 +7,12 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 from flaskr.db import get_db
 
+# This will return a json string of our data points
+import flaskr.simulator as sim
+
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
-
+# TODO: probably not needed if the client will reset on bad login
 def login_required(view):
     """View decorator that redirects anonymous users to the login page."""
     @functools.wraps(view)
@@ -42,6 +45,10 @@ def register():
     Validates that the username is not already taken. Hashes the
     password for security.
     """
+
+    if request.method == 'GET':
+        return 'please send username, password and client ID'
+
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
@@ -67,17 +74,24 @@ def register():
             db.commit()
             return redirect(url_for('auth.login'))
 
-        flash(error)
+        return error # flash(error)
 
-    return render_template('auth/register.html')
+    return 'incorrect username or passowd or client ID'
+    # TODO: return signal to reattempt password
+    # return render_template('auth/register.html')
 
 
 @bp.route('/login', methods=('GET', 'POST'))
 def login():
     """Log in a registered user by adding the user id to the session."""
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
+        # Expecting a json request with username and password
+        # TODO: add in cliant ID authentication 
+        content = request.get_json()
+        username = content['username']
+        password = content['password']
+        # username = request.form['username']
+        # password = request.form['password']
         db = get_db()
         error = None
         user = db.execute(
@@ -93,15 +107,16 @@ def login():
             # store the user id in a new session and return to the index
             session.clear()
             session['user_id'] = user['id']
-            return redirect(url_for('index'))
+            return sim.generate()
 
-        flash(error)
+        return error # flash(error)
 
-    return render_template('auth/login.html')
+    return 'Inccorect username or password or client ID'
+    # return render_template('auth/login.html')
 
 
 @bp.route('/logout')
 def logout():
     """Clear the current session, including the stored user id."""
     session.clear()
-    return redirect(url_for('index'))
+    return 'session cleared!'
