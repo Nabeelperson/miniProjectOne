@@ -56,7 +56,7 @@ textarea, select, input, button { outline: none; }
   z-index: -1;
 }
 
-.main-title {
+.main-title, .main-sub-title {
   display: inline-block;
   position: relative;
   font-size: 1.7em;
@@ -65,8 +65,13 @@ textarea, select, input, button { outline: none; }
   margin: auto;
 }
 
-/*** Login modal ***/
-.login-container {
+.main-sub-title {
+  margin-top: 2em;
+  font-size: 1em;
+}
+
+/*** Login/Dashboard modal ***/
+.login-container, .room-container {
   display: inline-block;
   position: relative;
   border: 1px outset #E5E2EA;
@@ -77,6 +82,29 @@ textarea, select, input, button { outline: none; }
   margin: auto;
   padding: 2em;
   text-align: left;
+}
+
+.room-container {
+  top: 12em;
+}
+
+.room-option-container {
+  display: inline-block;
+  position: relative;
+  border: 1px outset #E5E2EA;
+  width: 60%;
+  margin: auto;
+  height: 3em;
+  border-radius: 5px;
+  top: 12em;
+  padding: 2em 2em 0 4em;
+  text-align: left;
+}
+
+.room-action {
+  display: inline-block;
+  margin-right: 1em;
+  margin-left: 1em;
 }
 
 .login-title {
