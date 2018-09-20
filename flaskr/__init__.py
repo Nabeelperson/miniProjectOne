@@ -7,7 +7,7 @@ def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
-        SECRET_KEY='dev',
+        SECRET_KEY='TOTALLY SECRET - DO NOT LOOK PLEASE',
         DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
     )
 
@@ -24,12 +24,17 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    # a simple page that says hello
+    # a simple page that says hello for sanity checks
     @app.route('/hello')
     def hello():
         return 'Hello, World!'
 
+    #Sets up the database
     from . import db
     db.init_app(app)
+
+    #Adds the authentication blueprint to the current app
+    from . import auth
+    app.register_blueprint(auth.bp)
 
     return app
