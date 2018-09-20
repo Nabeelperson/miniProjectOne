@@ -6,4 +6,4 @@ handlers:
 - url: /auth/.*
   script: auth.py
 - url: /.*
-  script: hello.py
+  script: __init__.py
