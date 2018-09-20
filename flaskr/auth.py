@@ -20,7 +20,7 @@ def login_required(view):
         if g.user is None:
             return 'Please log in'
 
-        return sim.generate()
+        return sim.generate(num)
 
     return wrapped_view
 
@@ -86,6 +86,7 @@ def login():
         # Expecting a json request with username and password
         username = request.form['username']
         password = request.form['password']
+        num = request.form['num']
         db = get_db()
         error = None
         user = db.execute(
@@ -101,7 +102,7 @@ def login():
             # store the user id in a new session and return to the index
             session.clear()
             session['user_id'] = user['id']
-            return sim.generate()
+            return sim.generate(num)
 
         return error # flash(error)
 
@@ -114,3 +115,8 @@ def logout():
     """Clear the current session, including the stored user id."""
     session.clear()
     return 'session cleared!'
+
+@bp.route('/testJSON')
+def test():
+    """Creates a json object for testing purposes"""
+    return sim.generate(2)
