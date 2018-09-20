@@ -88,6 +88,11 @@ textarea, select, input, button { outline: none; }
   top: 12em;
 }
 
+.room-create {
+  display: inline-block;
+  margin-left: 1em !important;
+}
+
 .room-option-container {
   display: inline-block;
   position: relative;
@@ -118,6 +123,11 @@ textarea, select, input, button { outline: none; }
   margin-top: .5em;
 }
 
+.room-input {
+  display: inline-block;
+  width: 20% !important;
+}
+
 .login-label {
   display: inline-block;
   font-size: .7em;
@@ -136,6 +146,7 @@ textarea, select, input, button { outline: none; }
 .register-link:hover {
   text-decoration: underline;
 }
+
 
 
 
