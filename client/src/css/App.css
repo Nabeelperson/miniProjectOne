@@ -1,0 +1,156 @@
+/*** General CSS ***/
+body {
+  font-weight: 300;
+}
+
+a {
+  font-size: .8em;
+  text-decoration: none;
+}
+
+.shadow {
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  -moz-box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 0 10px 6px -6px #777;
+}
+
+input[type=text], [type=Password] {
+    padding: 12px 15px;
+    box-sizing: border-box;
+    width: 80%;
+}
+
+.button {
+    height: 2.8em;
+    text-align: center;
+    background-color: #777;
+    color: white;
+    padding: .9em;
+    margin-left: 3.4em;
+    margin-top: 1em;
+    display: inline-block;
+    border: none;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 3px #ddd;
+    font-size: .8em;
+}
+
+.button:hover {
+  background-color: #C1BDC8;
+}
+
+textarea, select, input, button { outline: none; }
+
+/*** Main css for front page ***/
+.main {
+  text-align: center;
+}
+
+.main-body {
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0px;
+  left:0px;
+  display: block;
+  z-index: -1;
+}
+
+.main-title, .main-sub-title {
+  display: inline-block;
+  position: relative;
+  font-size: 1.7em;
+  font-weight: 200;
+  top: 2em;
+  margin: auto;
+}
+
+.main-sub-title {
+  margin-top: 2em;
+  font-size: 1em;
+}
+
+/*** Login/Dashboard modal ***/
+.login-container, .room-container {
+  display: inline-block;
+  position: relative;
+  border: 1px outset #E5E2EA;
+  width: 22em;
+  height: 17em;
+  border-radius: 5px;
+  top: 8em;
+  margin: auto;
+  padding: 2em;
+  text-align: left;
+}
+
+.room-container {
+  top: 12em;
+}
+
+.room-create {
+  display: inline-block;
+  margin-left: 1em !important;
+}
+
+.room-option-container {
+  display: inline-block;
+  position: relative;
+  border: 1px outset #E5E2EA;
+  width: 60%;
+  margin: auto;
+  height: 3em;
+  border-radius: 5px;
+  top: 12em;
+  padding: 2em 2em 0 4em;
+  text-align: left;
+}
+
+.room-action {
+  display: inline-block;
+  margin-right: 1em;
+  margin-left: 1em;
+}
+
+.login-title {
+  font-size: 1.3em;
+  margin-left: 2em;
+  margin-top: 1em;
+}
+
+.login-input {
+  margin-left: 4em;
+  margin-top: .5em;
+}
+
+.room-input {
+  display: inline-block;
+  width: 20% !important;
+}
+
+.login-label {
+  display: inline-block;
+  font-size: .7em;
+  margin-left: 3.8em;
+  margin-top: 1em;
+}
+
+.register-link {
+  float: right;
+  display: inline-block;
+  position: relative;
+  top: 1.6em;
+  right: 2.3em;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+
+
