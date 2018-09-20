@@ -18,9 +18,9 @@ def login_required(view):
     @functools.wraps(view)
     def wrapped_view(**kwargs):
         if g.user is None:
-            return redirect(url_for('auth.login'))
+            return 'Please log in'
 
-        return view(**kwargs)
+        return sim.generate()
 
     return wrapped_view
 
@@ -72,13 +72,11 @@ def register():
                 (username, generate_password_hash(password))
             )
             db.commit()
-            return redirect(url_for('auth.login'))
+            return 'User account succesffuly added'
 
         return error # flash(error)
 
     return 'incorrect username or passowd or client ID'
-    # TODO: return signal to reattempt password
-    # return render_template('auth/register.html')
 
 
 @bp.route('/login', methods=('GET', 'POST'))
@@ -86,12 +84,8 @@ def login():
     """Log in a registered user by adding the user id to the session."""
     if request.method == 'POST':
         # Expecting a json request with username and password
-        # TODO: add in cliant ID authentication 
-        content = request.get_json()
-        username = content['username']
-        password = content['password']
-        # username = request.form['username']
-        # password = request.form['password']
+        username = request.form['username']
+        password = request.form['password']
         db = get_db()
         error = None
         user = db.execute(
