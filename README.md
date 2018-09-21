@@ -3,31 +3,48 @@
 ## Brian Koh and Nabeel Younis
 ### Senior Design EC436 Fall 2018
 
-Client:
-The basis of the front end was created using Craete React App and is done in Reactjs: 
-https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md
+#### Client:
+The basis of the front end was created using Craete React App and is done in [Reactjs](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
-The end point on G Cloud where the front end was deployed is:
-https://seniordesignminiproject-216618.appspot.com/
+The end point on G Cloud where the front end was deployed [here](https://seniordesignminiproject-216618.appspot.com/).
 
 To run the client, cd into the client folder. Then run the following in the console. Must have npm installed.
 ```shell
 npm start
 ```
 
-Server:
-This is a basic website that is built using [Flask](http://flask.pocoo.org/docs/1.0/)
-
-The basic struture of this webapp is based on the [tutorial](http://flask.pocoo.org/docs/1.0/tutorial/) from the Flask docs.
-
-This is a basic JSON API service that is meant to work in hand with the javascript client webapp. 
+#### Server:
+The backend of our project is a basic JSON API service that is meant to work in hand with the javascript client webapp. 
 
 
-Some notes to remeber:
-- remember to run the following
+
+**Dependencies:**
+- Python2.7
+- [Flask](http://flask.pocoo.org/docs/1.0/), a light-wieght python framework for quickly developing and testing webapps
+    - The basic struture of this webapp is based on the [tutorial](http://flask.pocoo.org/docs/1.0/tutorial/) from the Flask docs
+- [waitress](https://docs.pylonsproject.org/projects/waitress/en/latest/), a small WSGI production server webapp manager 
+
+Running the server for testing purposes:
 ```shell
-flask init-db   #only once, unless you want to reset the DB
 export FLASK_APP=flaskr
 export FLASK_ENV=development
+flask init-db   #only once, unless you want to reset the DB
 flask run       #must be in the repo directory and not flakr dirctory
 ```
+
+**Server Deployment:**
+```shell
+export FLASK_APP=flaskr
+export FLASK_ENV=production
+flask init-db               # !!! WILL RESET DATABASE IF ONE EXSITS!!!
+waitress-serve --call \
+'flaskr:create_app' &       # Runs on post 8080 by default
+```
+
+
+#### Division of Labour
+Both: Agreed on overall design of the project and interactions between client and server
+
+Brian: Built the client 
+
+Nabeel: Built the server
