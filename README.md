@@ -14,9 +14,9 @@ npm start
 ```
 
 #### Server:
-The backend of our project is a basic JSON API service that is meant to work in hand with the javascript client webapp. 
+The backend of our project is a basic JSON API service that is meant to work in hand with the javascript client webapp.
 
-
+Access point for backend: ```http://35.185.56.118:8080/```
 
 **Dependencies:**
 - Python2.7
@@ -33,6 +33,9 @@ flask run       #must be in the repo directory and not flakr dirctory
 ```
 
 **Server Deployment:**
+
+The server is run on a gcloud VM instance rather than a app_engine container because it was simpler then trying to containerize flask. 
+
 ```shell
 export FLASK_APP=flaskr
 export FLASK_ENV=production
